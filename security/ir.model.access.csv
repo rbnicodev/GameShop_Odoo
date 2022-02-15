@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_game_model,access_game_model,model_game_model,base.group_user,1,1,1,1
+access_platform_model,access_platform_model,model_platform_model,base.group_user,1,1,1,1
+access_genre_model,access_genre_model,model_genre_model,base.group_user,1,1,1,1

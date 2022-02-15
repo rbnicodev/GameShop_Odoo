@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="genre_model_action_window" model="ir.actions.act_window">
+		<field name="name">Géneros</field>
+		<field name="res_model">genre.model</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="genre_menu" parent="game_inicio_menu" name="Géneros" action="genre_model_action_window"/>
+
+	<record id="genre_model_tree" model="ir.ui.view">
+		<field name="name">genre.model.tree</field>
+		<field name="model">genre.model</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" string="Género"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="genre_model_form" model="ir.ui.view">
+		<field name="name">genre.model.form</field>
+		<field name="model">genre.model</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name" string="Género"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+</odoo>

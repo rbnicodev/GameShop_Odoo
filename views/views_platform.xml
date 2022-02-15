@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="platform_model_action_window" model="ir.actions.act_window">
+		<field name="name">Plataformas</field>
+		<field name="res_model">platform.model</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="platform_menu" parent="game_inicio_menu" name="Plataformas" action="platform_model_action_window"/>
+
+	<record id="platform_model_tree" model="ir.ui.view">
+		<field name="name">platform.model.tree</field>
+		<field name="model">platform.model</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" string="Nombre"/>
+				<field name="date" string="Lanzamiento"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="platform_model_form" model="ir.ui.view">
+		<field name="name">platform.model.form</field>
+		<field name="model">platform.model</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name" string="Nombre"/>
+						<field name="date" string="Lanzamiento"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+</odoo>

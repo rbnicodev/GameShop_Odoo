@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="game_model_action_window" model="ir.actions.act_window">
+		<field name="name">Juegos</field>
+		<field name="res_model">game.model</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="game_menu_root" name="GameShop" sequence="2"/>
+	<menuitem id="game_inicio_menu" parent="game_menu_root" name="Juegos" action="game_model_action_window"/>
+
+	<record id="game_model_tree" model="ir.ui.view">
+		<field name="name">game.model.tree</field>
+		<field name="model">game.model</field>
+		<field name="arch" type="xml">
+			<tree string="Juegos">
+				<field name="name"/>
+				<field name="price" widget="monetary"/>
+				<field name="date_availability"/>
+				<field name="platform_ids" widget="many2many_tags" string="Plataformas" options="{'color_field':'color'}"/>
+				<field name="genre_ids" widget="many2many_tags" string="Género" options="{'color_field':'color'}"/>
+			</tree>
+		</field>
+	</record>
+	<record id="game_model_form" model="ir.ui.view">
+		<field name="name">game.model.form</field>
+		<field name="model">game.model</field>
+		<field name="arch" type="xml">
+			<form string="Juegos">
+				<sheet>
+					<group>
+						<field name="genre_ids" widget="many2many_tags" string="Género" options="{'color_field':'color'}"/>
+						<field name="platform_ids" widget="many2many_tags" string="Plataforma" options="{'color_field':'color'}"/>
+					</group>
+					<group>
+						<field name="name"/>
+						<field name="date_availability"/>
+						<field name="price" widget="monetary"/>
+						<field name="cover" widget="image"/>
+					</group>
+					<sheet>
+						<notebook>
+							<page string="Descripción">
+								<group>
+									<field name="description"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="game_model_search" model="ir.ui.view">
+		<field name="name">game.model.search</field>
+		<field name="model">game.model</field>
+		<field name="arch" type="xml">
+			<search string="Búsqueda">
+				<field name="name"/>
+				<field name="price"/>
+				<group expand="1" string="Group by">
+					<filter string="Plataforma" name="platform_ids" context="{'group_by':'platform_ids'}"/>
+					<filter string="Género" name="genre_ids" context="{'group_by':'genre_ids'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+	
+</odoo>
