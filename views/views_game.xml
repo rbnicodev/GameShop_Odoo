@@ -15,7 +15,9 @@
 		<field name="arch" type="xml">
 			<tree string="Juegos">
 				<field name="name"/>
+				<field name="starting_price" widget="monetary"/>
 				<field name="price" widget="monetary"/>
+				<field name="revaluation" widget="percentage"/>
 				<field name="date_availability"/>
 				<field name="platform_ids" widget="many2many_tags" string="Plataformas" options="{'color_field':'color'}"/>
 				<field name="available_platforms"/>
@@ -36,6 +38,7 @@
 					<group>
 						<field name="name"/>
 						<field name="date_availability"/>
+						<field name="starting_price" widget="monetary"/>
 						<field name="price" widget="monetary"/>
 						<field name="cover" widget="image"/>
 					</group>

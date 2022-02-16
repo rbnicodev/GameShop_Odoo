@@ -11,6 +11,8 @@ class Game_Model(models.Model):
         cover = fields.Binary()
         date_availability = fields.Date('Disponibilidad', required = True, help = 'Fechas disponibles')
         price = fields.Float('Precio de venta', required = True, help = 'Precio')
+        starting_price = fields.Float('Precio de salida', required = False, help = 'Precio original')
+        revaluation = fields.Float(compute='_compute_revaluation', string='Revalorización (%)')
         genre_ids = fields.Many2many('genre.model' , string="Género")
         platform_ids = fields.Many2many('platform.model', string="Plataforma")
         available_platforms = fields.Integer(compute='_compute_available_platforms', string="Plataformas disponibles")
@@ -19,3 +21,6 @@ class Game_Model(models.Model):
                 self.available_platforms = 0
                 for platform in self.platform_ids:
                         self.available_platforms += 1
+                        
+        def _compute_revaluation(self):
+                self.revaluation = self.price / self.starting_price
