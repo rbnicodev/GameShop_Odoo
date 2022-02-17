@@ -13,19 +13,20 @@ class Game_Model(models.Model):
         #precio de venta
         price = fields.Float('Precio de venta', required = True, help = 'Precio')
         starting_price = fields.Float('Precio de salida', required = False, help = 'Precio original')
+        owned = fields.Boolean('En posesión')
         
         genre_ids = fields.Many2many('genre.model' , string="Género")
         platform_ids = fields.Many2many('platform.model', string="Plataforma")
         
         revaluation = fields.Float(compute='_compute_revaluation', string='Revalorización (%)')
-        available_platforms = fields.Integer(compute='_compute_available_platforms', string="Plataformas disponibles")
+        num_genres = fields.Integer(compute='_compute_num_genres', string="Cantidad de Géneros")
         
-        @api.onchange("platform_ids")
-        def _compute_available_platforms(self):
+        @api.onchange("genre_ids")
+        def _compute_num_genres(self):
                 for record in self:
-                        record.available_platforms = 0
-                for n in range(len(record.platform_ids)):
-                        record.available_platforms += 1
+                        record.num_genres = 0
+                        for n in range(len(record.genre_ids)):
+                                record.num_genres += 1
         
         @api.onchange("price", "starting_price")               
         def _compute_revaluation(self):

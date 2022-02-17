@@ -15,13 +15,14 @@
 		<field name="arch" type="xml">
 			<tree string="Juegos">
 				<field name="name"/>
+				<field name="genre_ids" widget="many2many_tags" string="Género" options="{'color_field':'color'}"/>
+				<field name="platform_ids" widget="many2many_tags" string="Plataformas" options="{'color_field':'color'}"/>
+				<field name="date_availability"/>
 				<field name="starting_price" widget="monetary"/>
 				<field name="price" widget="monetary"/>
 				<field name="revaluation" widget="percentage"/>
-				<field name="date_availability"/>
-				<field name="platform_ids" widget="many2many_tags" string="Plataformas" options="{'color_field':'color'}"/>
-				<field name="available_platforms"/>
-				<field name="genre_ids" widget="many2many_tags" string="Género" options="{'color_field':'color'}"/>
+				<field name="num_genres" string="n de Géneros"/>
+				<field name="owned" widget="boolean_toggle" string="En posesión"/>
 			</tree>
 		</field>
 	</record>
@@ -41,6 +42,7 @@
 						<field name="starting_price" widget="monetary"/>
 						<field name="price" widget="monetary"/>
 						<field name="cover" widget="image"/>
+						<!--<field name="owned" widget="boolean_toggle" string="En posesión"/>-->
 					</group>
 					<sheet>
 						<notebook>
