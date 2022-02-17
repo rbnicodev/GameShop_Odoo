@@ -21,7 +21,7 @@
 				<field name="starting_price" widget="monetary"/>
 				<field name="price" widget="monetary"/>
 				<field name="revaluation" widget="percentage"/>
-				<field name="num_genres" string="n de Géneros"/>
+				<field name="num_genres" string="Cantidad de Géneros"/>
 				<field name="owned" widget="boolean_toggle" string="En posesión"/>
 			</tree>
 		</field>
@@ -41,8 +41,8 @@
 						<field name="date_availability"/>
 						<field name="starting_price" widget="monetary"/>
 						<field name="price" widget="monetary"/>
+						<field name="owned" widget="boolean_toggle" string="En posesión"/>
 						<field name="cover" widget="image"/>
-						<!--<field name="owned" widget="boolean_toggle" string="En posesión"/>-->
 					</group>
 					<sheet>
 						<notebook>
