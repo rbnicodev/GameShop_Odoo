@@ -31,7 +31,10 @@ class Game_Model(models.Model):
         @api.onchange("price", "starting_price")               
         def _compute_revaluation(self):
                 for record in self:
-                        if record.starting_price > 0:
-                                record.revaluation = record.price / record.starting_price
+                        if record.owned == False:
+                                if record.starting_price > 0:
+                                        record.revaluation = (record.price - record.starting_price) / record.starting_price
+                                else:
+                                        record.revaluation = 0
                         else:
                                 record.revaluation = 0

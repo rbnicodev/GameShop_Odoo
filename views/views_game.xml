@@ -17,10 +17,10 @@
 				<field name="name"/>
 				<field name="genre_ids" widget="many2many_tags" string="Género" options="{'color_field':'color'}"/>
 				<field name="platform_ids" widget="many2many_tags" string="Plataformas" options="{'color_field':'color'}"/>
-				<field name="date_availability"/>
-				<field name="starting_price" widget="monetary"/>
-				<field name="price" widget="monetary"/>
-				<field name="revaluation" widget="percentage"/>
+				<field name="date_availability" string="Fecha adquisición"/>
+				<field name="starting_price" widget="monetary" string="Precio de compra"/>
+				<field name="price" widget="monetary" string="Precio de venta"/>
+				<field name="revaluation" widget="percentage" string="Ganancia"/>
 				<field name="num_genres" string="Cantidad de Géneros"/>
 				<field name="owned" widget="boolean_toggle" string="En posesión"/>
 			</tree>
